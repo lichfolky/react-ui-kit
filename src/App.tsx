@@ -9,16 +9,19 @@ import TwoFactor from './components/TwoFactors';
 function App() {
   const shapes = [{ value: "circles", label: "circles" }, { value: "poli", label: "poli" }];
 
-
   return (
     <>
       <form onSubmit={(e) => {
-        console.log(e.target);
+        const formData = new FormData(e.currentTarget);
+        for (let [key, value] of formData.entries()) {
+          console.log(key, value);
+        }
         e.preventDefault();
       }
       }>
-        <Input label={'Mail'} type={'text'} required />
-        <RadioGroup name="shapes" values={shapes} required />
+        <Input id="mail" name="mail" label={'Mail'} type={'text'} required />
+        <RadioGroup id="shapes" name="shapes" values={shapes} required />
+        <CountrySelect id="country" name="country" required />
         <Button variant="primary">
           Confirm
         </Button>

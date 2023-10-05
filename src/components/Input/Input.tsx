@@ -1,23 +1,32 @@
 import React from "react";
 import styles from "./Input.module.css";
 
-function Input({ label, type, required }: { label: string, type: React.HTMLInputTypeAttribute, required: boolean; }) {
+function Input({ defaultValue = "", id, label, name, type, required, placeholder }: { defaultValue?: string, id: string, label: string, name: string, type: React.HTMLInputTypeAttribute, required: boolean, placeholder?: string; }) {
 
     const [
-        input,
-        setInput,
-    ] = React.useState('');
+        value,
+        setValue,
+    ] = React.useState(defaultValue);
 
     return (
         <div className={styles.field}>
+            <label htmlFor={id} >
+                {label}
+            </label>
             <div className={styles.label}>
                 {label}
             </div>
-            <input type={type}
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                required={required}>
+            <input
+                id={id}
+                name={name}
+                type={type}
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                required={required}
+                placeholder={placeholder}
+            >
             </input>
+            {value}
         </div>
     );
 }

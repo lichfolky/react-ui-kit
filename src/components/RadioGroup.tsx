@@ -1,6 +1,6 @@
 import React from 'react';
 
-function RadioGroup({ name, values, required }: { name: string; values: { value: string, label: string; }[]; required: boolean; }) {
+function RadioGroup({ id, name, values, required }: { id: string, name: string; values: { value: string, label: string; }[]; required: boolean; }) {
     const [
         selectedValue,
         setSelectedValue,
@@ -11,7 +11,7 @@ function RadioGroup({ name, values, required }: { name: string; values: { value:
             {values.map(({ value, label }) => (
                 < div className="radio-option" key={value}>
                     <input
-                        id={`shape-${value}`}
+                        id={`${id}-${value}`}
                         type="radio"
                         name={name}
                         value={value}
@@ -21,7 +21,7 @@ function RadioGroup({ name, values, required }: { name: string; values: { value:
                         }}
                         required={required}
                     />
-                    <label htmlFor={`shape-${value}`}>
+                    <label htmlFor={`${id}-${value}`}>
                         {label}
                     </label>
                 </div>))
