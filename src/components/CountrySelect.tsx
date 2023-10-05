@@ -4,7 +4,7 @@ import { COUNTRIES } from '../data/countries';
 
 const countryNames = Object.entries(COUNTRIES);
 
-function CountrySelect({ id, name }: { id: string, name: string; }) {
+function CountrySelect({ id, name, required }: { id: string, name: string, required: boolean; }) {
     const [
         country,
         setCountry,
@@ -16,14 +16,15 @@ function CountrySelect({ id, name }: { id: string, name: string; }) {
             <label htmlFor="country" >
                 Country:
             </label>
-            <select required
+            <select
                 id={id}
                 name={name}
                 value={country}
                 onChange={event => {
                     setCountry(event.target.value);
-                }
-                }>
+                }}
+                required={required}
+            >
                 <option value="" >— Select Country —</option>
                 <optgroup label="Countries" >
                     {
