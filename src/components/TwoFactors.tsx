@@ -4,6 +4,7 @@ const CORRECT_CODE = '123456';
 
 function TwoFactor() {
     const [code, setCode] = React.useState('');
+
     function handleChange(event: BaseSyntheticEvent) {
         console.log(event.target.value);
         setCode(event.target.value);

@@ -11,7 +11,7 @@ function RadioGroup({ name, values, required }: { name: string; values: { value:
             {values.map(({ value, label }) => (
                 < div className="radio-option" key={value}>
                     <input
-                        id="shape-polygon"
+                        id={`shape-${value}`}
                         type="radio"
                         name={name}
                         value={value}
@@ -21,7 +21,7 @@ function RadioGroup({ name, values, required }: { name: string; values: { value:
                         }}
                         required={required}
                     />
-                    <label htmlFor="shape-polygon">
+                    <label htmlFor={`shape-${value}`}>
                         {label}
                     </label>
                 </div>))
