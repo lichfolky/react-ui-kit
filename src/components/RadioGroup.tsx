@@ -6,7 +6,7 @@ function RadioGroup({ name, values, required }: { name: string; values: { value:
         setSelectedValue,
     ] = React.useState('');
 
-    return (<>{selectedValue}
+    return (
         <div className="radio-wrapper">
             {values.map(({ value, label }) => (
                 < div className="radio-option" key={value}>
@@ -26,7 +26,7 @@ function RadioGroup({ name, values, required }: { name: string; values: { value:
                     </label>
                 </div>))
             }
-        </div ></>);
+        </div >);
 }
 
 
